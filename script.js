@@ -223,7 +223,9 @@ function shuffle(arr){
   return arr;
 }
 
-const order = shuffle([...Array(GALLERY_COUNT).keys()]);
+// スマホは表示枚数を減らす
+const shown = matchMedia("(max-width:600px)").matches ? 9 : GALLERY_COUNT;
+const order = shuffle([...Array(GALLERY_COUNT).keys()]).slice(0, shown);
 function buildGallery(){
   if (!board) return;
   const frag = document.createDocumentFragment();

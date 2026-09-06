@@ -662,8 +662,6 @@ a{color:inherit;text-decoration:none}
   .sec{padding:clamp(62px,15vw,112px) 18px}
   .h-hand{margin-bottom:clamp(30px,9vw,56px)}
   .h-hand img{width:min(280px,56vw)}
-
-  .gboard{column-count:2}
 }
 
 /* スマホ縦 */
@@ -688,6 +686,10 @@ a{color:inherit;text-decoration:none}
   /* 歪みフィルタは負荷が高いのでスマホでは静的グリッドに */
   .warp-grid{filter:none;inset:0;opacity:.45}
   .svg-defs{display:none}
+
+  /* ギャラリーは3列のまま・間隔と余白を詰める */
+  .gboard{column-gap:8px}
+  .gboard__item{margin-bottom:8px;padding:4px 4px 8px}
 }
 
 /* 小型スマホ */
@@ -696,7 +698,6 @@ a{color:inherit;text-decoration:none}
   .nav__brand{font-size:13px;letter-spacing:.16em}
 
   .top__stage{width:185%;margin-left:-42.5%}
-  .gboard{column-count:1;max-width:340px}
 }
 
 /* ---------- reduced motion ---------- */
