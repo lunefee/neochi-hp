@@ -130,6 +130,12 @@ addEventListener("scroll", onScroll, { passive:true });
     });
     const md = document.querySelector('meta[name="description"]');
     if (md && d["meta.desc"]) md.setAttribute("content", d["meta.desc"]);
+
+    // 日本語は画像のロゴタイプ、それ以外はテキストに切り替え
+    const isJa = lang === "ja";
+    document.querySelectorAll("[data-lang-img]").forEach(el => { el.hidden = !isJa; });
+    document.querySelectorAll("[data-lang-txt]").forEach(el => { el.hidden = isJa; });
+
     document.querySelectorAll(".langsw__b").forEach(b => {
       b.setAttribute("aria-current", String(b.dataset.lang === lang));
     });
