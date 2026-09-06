@@ -107,7 +107,7 @@ a{color:inherit;text-decoration:none}
   position:fixed;inset:0 0 auto 0;height:var(--nav-h);z-index:50;
   display:flex;align-items:center;justify-content:space-between;gap:16px;
   padding:0 clamp(16px,4vw,40px);
-  font-family:"Noto Sans JP",sans-serif;
+  font-family:"Noto Sans JP","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
   color:#f5f7f9;
   background:rgba(125,143,163,.28);
   backdrop-filter:blur(16px) saturate(1.5);
@@ -166,6 +166,32 @@ a{color:inherit;text-decoration:none}
 .nav.is-menu-open .nav__burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .nav.is-menu-open .nav__burger span:nth-child(2){opacity:0}
 .nav.is-menu-open .nav__burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+.nav__right{
+  display:flex;align-items:center;
+  gap:clamp(10px,2.4vw,18px);
+  flex:0 0 auto;
+}
+
+/* 言語切り替え */
+.langsw{display:flex;align-items:center;gap:1px}
+.langsw__b{
+  font-family:"Noto Sans JP","Apple SD Gothic Neo",sans-serif;
+  font-size:11px;letter-spacing:.06em;
+  padding:4px 5px;
+  border:0;background:none;cursor:pointer;
+  color:rgba(245,247,249,.55);
+  text-shadow:0 1px 2px rgba(50,66,86,.5);
+  transition:color .2s;
+  -webkit-tap-highlight-color:transparent;
+}
+.langsw__b:hover{color:rgba(245,247,249,.85)}
+.langsw__b[aria-current="true"]{
+  color:#fff;
+  text-decoration:underline;
+  text-underline-offset:3px;
+  text-decoration-thickness:1.5px;
+}
 
 .nav__star{
   display:inline-flex;align-items:center;
@@ -324,12 +350,12 @@ a{color:inherit;text-decoration:none}
 .ytbox__thumb span{
   position:absolute;inset:auto 0 0 0;
   padding:10px;
-  font-family:"Noto Sans JP",sans-serif;font-size:13px;letter-spacing:.06em;
+  font-family:"Noto Sans JP","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:13px;letter-spacing:.06em;
   color:#fff;background:linear-gradient(transparent,rgba(20,28,40,.7));
 }
 .ytbox__next{
   margin-top:14px;
-  font-family:"Noto Sans JP",sans-serif;
+  font-family:"Noto Sans JP","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
   font-size:13px;letter-spacing:.06em;
   color:#41515f;
   background:rgba(255,255,255,.72);
@@ -457,7 +483,7 @@ a{color:inherit;text-decoration:none}
 .foot__copy{
   display:block;
   margin-top:clamp(20px,4vw,36px);
-  font-family:"Noto Sans JP",sans-serif;
+  font-family:"Noto Sans JP","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
   font-size:11px;
   letter-spacing:.16em;
   color:rgba(243,246,249,.72);

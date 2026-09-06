@@ -24,7 +24,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Noto+Sans+JP:wght@400;500;700&family=Yomogi&family=Kaisei+Decol:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700&family=Yomogi&family=Kaisei+Decol:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body class="is-loading">
@@ -70,12 +70,19 @@
     <a href="#shop">SHOP</a>
     <a href="#gallery">GALLERY</a>
   </nav>
-  <button class="nav__star" id="fxToggle" type="button" aria-pressed="true" aria-label="カーソルの星をオン / オフ" title="カーソルの星 ✦ ON / OFF">
-    <img src="img/nav-star.png" alt="">
-  </button>
-  <button class="nav__burger" id="navBurger" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="navLinks">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="nav__right">
+    <div class="langsw" role="group" aria-label="Language">
+      <button type="button" class="langsw__b" data-lang="ja">JA</button>
+      <button type="button" class="langsw__b" data-lang="ko">KO</button>
+      <button type="button" class="langsw__b" data-lang="en">EN</button>
+    </div>
+    <button class="nav__star" id="fxToggle" type="button" aria-pressed="true" data-i18n-aria="fx.toggle" data-i18n-title="fx.toggle" aria-label="カーソルの星 ON / OFF" title="カーソルの星 ON / OFF">
+      <img src="img/nav-star.png" alt="">
+    </button>
+    <button class="nav__burger" id="navBurger" type="button" data-i18n-aria="nav.menu" aria-label="メニュー" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </header>
 
 <main>
@@ -123,22 +130,22 @@
       <a class="sns__hit" style="left:40%;width:13%"   href="#" data-sns="youtube"   aria-label="YouTube"></a>
       <a class="sns__hit" style="left:58.5%;width:13%" href="#" data-sns="tiktok"    aria-label="TikTok"></a>
       <a class="sns__hit" style="left:77%;width:14%"   href="#" data-sns="suzuri"    aria-label="SUZURI"></a>
-      <a class="sns__cat" href="#" data-sns="cat" aria-label="猫のイラスト（uminohibi）">
+      <a class="sns__cat" href="#" data-sns="cat" data-i18n-aria="sns.cat" aria-label="猫のイラスト（uminohibi）">
         <img src="img/sns-cat.png" alt="">
       </a>
     </div>
 
     <div class="sns__yt reveal">
       <div class="ytbox"><div id="ytPlayer"></div></div>
-      <button type="button" class="ytbox__next" id="ytNext">別の動画をランダム再生 ▶</button>
+      <button type="button" class="ytbox__next" id="ytNext" data-i18n="yt.next">別の動画をランダム再生 ▶</button>
     </div>
   </section>
 
   <!-- ============ SHOP ============ -->
   <section id="shop" class="sec sec--shop">
     <h2 class="h-hand reveal"><img src="img/head-shop.png" alt="SHOP"></h2>
-    <a class="shop__card reveal" href="https://neochi.stores.jp/" target="_blank" rel="noopener" aria-label="neochi STORES へ">
-      <img class="shop__photo" src="img/shop-photo.jpg" alt="neochi のグッズ">
+    <a class="shop__card reveal" href="https://neochi.stores.jp/" target="_blank" rel="noopener" data-i18n-aria="shop.aria" aria-label="neochi STORES へ">
+      <img class="shop__photo" src="img/shop-photo.jpg" data-i18n-alt="shop.alt" alt="neochi のグッズ">
     </a>
   </section>
 
@@ -153,7 +160,7 @@
 </main>
 
 <footer class="foot" id="contact">
-  <img src="img/foot-text.png" alt="ねむりたいときにねろ。" class="foot__tag reveal">
+  <img src="img/foot-text.png" data-i18n-alt="meta.desc" alt="ねむりたいときにねろ。" class="foot__tag reveal">
   <a class="foot__top reveal" href="#top">
     <span class="foot__top-arrow" aria-hidden="true">↑</span>
     page top
@@ -162,14 +169,14 @@
 </footer>
 
 <!-- floating contact -->
-<a class="float" href="https://forms.gle/TwyZodBjQKFjY3rs8" target="_blank" rel="noopener" data-sns="contact" aria-label="CONTACT（お問い合わせフォーム）">
+<a class="float" href="https://forms.gle/TwyZodBjQKFjY3rs8" target="_blank" rel="noopener" data-sns="contact" data-i18n-aria="contact.aria" aria-label="CONTACT（お問い合わせフォーム）">
   <img class="float__ring" src="img/contact-ring.png" alt="">
   <img class="float__bear" src="img/contact-bear.png" alt="">
 </a>
 
 <!-- gallery lightbox -->
 <div class="lb" id="lb" hidden>
-  <button class="lb__close" id="lbClose" aria-label="閉じる">×</button>
+  <button class="lb__close" id="lbClose" data-i18n-aria="lb.close" aria-label="閉じる">×</button>
   <img id="lbImg" src="" alt="">
 </div>
 

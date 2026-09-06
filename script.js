@@ -65,6 +65,86 @@ addEventListener("scroll", onScroll, { passive:true });
     ((e) => { if (e.matches) setOpen(false); });
 })();
 
+/* ---------- 言語切り替え（JA / KO / EN） ---------- */
+(function i18n(){
+  const KEY = "neochi:lang";
+  const SUPPORTED = ["ja", "ko", "en"];
+  const DICT = {
+    ja: {
+      "meta.desc":     "ねむりたいときにねろ。",
+      "yt.next":       "別の動画をランダム再生 ▶",
+      "nav.menu":      "メニュー",
+      "fx.toggle":     "カーソルの星 ON / OFF",
+      "lb.close":      "閉じる",
+      "contact.aria":  "CONTACT（お問い合わせフォーム）",
+      "shop.aria":     "neochi STORES へ",
+      "shop.alt":      "neochi のグッズ",
+      "sns.cat":       "猫のイラスト（uminohibi）"
+    },
+    ko: {
+      "meta.desc":     "자고 싶을 때 자라.",
+      "yt.next":       "다른 영상 랜덤 재생 ▶",
+      "nav.menu":      "메뉴",
+      "fx.toggle":     "커서 별 ON / OFF",
+      "lb.close":      "닫기",
+      "contact.aria":  "CONTACT (문의 폼)",
+      "shop.aria":     "neochi STORES로 이동",
+      "shop.alt":      "neochi 굿즈",
+      "sns.cat":       "고양이 일러스트 (uminohibi)"
+    },
+    en: {
+      "meta.desc":     "Sleep when you feel sleepy.",
+      "yt.next":       "Play another random video ▶",
+      "nav.menu":      "Menu",
+      "fx.toggle":     "Cursor stars ON / OFF",
+      "lb.close":      "Close",
+      "contact.aria":  "Contact (inquiry form)",
+      "shop.aria":     "Go to neochi STORES",
+      "shop.alt":      "neochi merch",
+      "sns.cat":       "Cat illustration (uminohibi)"
+    }
+  };
+
+  function detect(){
+    try { const s = localStorage.getItem(KEY); if (SUPPORTED.includes(s)) return s; } catch (e) {}
+    const n = (navigator.language || "ja").slice(0, 2).toLowerCase();
+    return SUPPORTED.includes(n) ? n : "ja";
+  }
+
+  let lang = detect();
+
+  function apply(){
+    const d = DICT[lang] || DICT.ja;
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const v = d[el.dataset.i18n]; if (v != null) el.textContent = v;
+    });
+    document.querySelectorAll("[data-i18n-aria]").forEach(el => {
+      const v = d[el.dataset.i18nAria]; if (v != null) el.setAttribute("aria-label", v);
+    });
+    document.querySelectorAll("[data-i18n-title]").forEach(el => {
+      const v = d[el.dataset.i18nTitle]; if (v != null) el.setAttribute("title", v);
+    });
+    document.querySelectorAll("[data-i18n-alt]").forEach(el => {
+      const v = d[el.dataset.i18nAlt]; if (v != null) el.setAttribute("alt", v);
+    });
+    const md = document.querySelector('meta[name="description"]');
+    if (md && d["meta.desc"]) md.setAttribute("content", d["meta.desc"]);
+    document.querySelectorAll(".langsw__b").forEach(b => {
+      b.setAttribute("aria-current", String(b.dataset.lang === lang));
+    });
+  }
+
+  document.querySelectorAll(".langsw__b").forEach(b => {
+    b.addEventListener("click", () => {
+      lang = b.dataset.lang;
+      try { localStorage.setItem(KEY, lang); } catch (e) {}
+      apply();
+    });
+  });
+  apply();
+})();
+
 /* ---------- SNS リンク割り当て ---------- */
 const toast = document.getElementById("toast");
 let toastT;
