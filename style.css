@@ -286,49 +286,6 @@ a{color:inherit;text-decoration:none}
   filter:url(#gridWarp);
 }
 .sec--sns,.sec--shop{background:transparent}
-.sec--about{background:#fafbfb}
-
-/* ---------- ABOUT ---------- */
-.h-hand--txt{
-  font-family:"Yomogi",cursive;
-  font-weight:400;
-  font-size:clamp(1.3rem,4.2vw,2rem);
-  letter-spacing:.5em;
-  text-indent:.5em;
-  color:var(--accent);
-}
-.about{
-  display:flex;flex-wrap:wrap;
-  align-items:center;justify-content:center;
-  gap:clamp(24px,6vw,64px);
-  max-width:680px;margin:0 auto;
-}
-.about__pic{
-  width:clamp(150px,34vw,230px);height:auto;
-  flex:0 0 auto;
-}
-.about__body{text-align:left}
-.about__name{
-  margin:0 0 16px;
-  font-family:"Yomogi",cursive;
-  font-size:clamp(1.9rem,7vw,2.8rem);
-  letter-spacing:.06em;
-  line-height:1;
-  color:var(--ink);
-}
-.about__roles{
-  list-style:none;margin:0;padding:0;
-  display:flex;flex-wrap:wrap;gap:9px 10px;
-}
-.about__roles li{
-  font-family:"Noto Sans JP",sans-serif;
-  font-size:clamp(12px,2.4vw,14px);
-  letter-spacing:.06em;
-  color:var(--accent);
-  border:1px solid rgba(108,128,156,.4);
-  border-radius:999px;
-  padding:5px 15px;
-}
 
 /* ---------- SNS ---------- */
 .sns{position:relative;width:min(560px,90vw);margin:0 auto}
