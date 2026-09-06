@@ -471,6 +471,14 @@ a{color:inherit;text-decoration:none}
   text-shadow:0 1px 4px rgba(50,66,86,.4);
 }
 .foot__tag[hidden],.foot__tag-txt[hidden]{display:none}
+.foot__roles{
+  margin:clamp(14px,3vw,22px) 0 0;
+  font-family:"Noto Sans JP","Noto Sans KR",sans-serif;
+  font-size:12px;
+  letter-spacing:.1em;
+  color:rgba(243,246,249,.82);
+}
+.foot__roles-name{font-weight:700;margin-right:.55em;letter-spacing:.16em}
 .foot__top{
   display:inline-flex;align-items:center;gap:9px;
   margin-top:clamp(26px,5vw,46px);

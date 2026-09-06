@@ -79,7 +79,8 @@ addEventListener("scroll", onScroll, { passive:true });
       "contact.aria":  "CONTACT（お問い合わせフォーム）",
       "shop.aria":     "neochi STORES へ",
       "shop.alt":      "neochi のグッズ",
-      "sns.cat":       "猫のイラスト（uminohibi）"
+      "sns.cat":       "猫のイラスト（uminohibi）",
+      "foot.roles":    " illust ｜ photo ｜ movie"
     },
     ko: {
       "meta.desc":     "자고 싶을 때 자라.",
@@ -90,7 +91,8 @@ addEventListener("scroll", onScroll, { passive:true });
       "contact.aria":  "CONTACT (문의 폼)",
       "shop.aria":     "neochi STORES로 이동",
       "shop.alt":      "neochi 굿즈",
-      "sns.cat":       "고양이 일러스트 (uminohibi)"
+      "sns.cat":       "고양이 일러스트 (uminohibi)",
+      "foot.roles":    " 일러스트 ｜ 사진 ｜ 영상"
     },
     en: {
       "meta.desc":     "Sleep when you feel sleepy.",
@@ -101,7 +103,8 @@ addEventListener("scroll", onScroll, { passive:true });
       "contact.aria":  "Contact (inquiry form)",
       "shop.aria":     "Go to neochi STORES",
       "shop.alt":      "neochi merch",
-      "sns.cat":       "Cat illustration (uminohibi)"
+      "sns.cat":       "Cat illustration (uminohibi)",
+      "foot.roles":    " illust ｜ photo ｜ movie"
     }
   };
 
