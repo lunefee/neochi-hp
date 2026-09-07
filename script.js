@@ -80,6 +80,7 @@ addEventListener("scroll", onScroll, { passive:true });
       "contact.aria":  "CONTACT（お問い合わせフォーム）",
       "shop.aria":     "neochi STORES へ",
       "shop.alt":      "neochi のグッズ",
+      "lunefee.aria":  "Lunefee サイトへ",
       "sns.cat":       "猫のイラスト（uminohibi）",
       "foot.roles":    " illust ｜ photo ｜ movie"
     },
@@ -93,6 +94,7 @@ addEventListener("scroll", onScroll, { passive:true });
       "contact.aria":  "CONTACT (문의 폼)",
       "shop.aria":     "neochi STORES로 이동",
       "shop.alt":      "neochi 굿즈",
+      "lunefee.aria":  "Lunefee 사이트로",
       "sns.cat":       "고양이 일러스트 (uminohibi)",
       "foot.roles":    " 일러스트 ｜ 사진 ｜ 영상"
     },
@@ -106,6 +108,7 @@ addEventListener("scroll", onScroll, { passive:true });
       "contact.aria":  "Contact (inquiry form)",
       "shop.aria":     "Go to neochi STORES",
       "shop.alt":      "neochi merch",
+      "lunefee.aria":  "Go to Lunefee site",
       "sns.cat":       "Cat illustration (uminohibi)",
       "foot.roles":    " illust ｜ photo ｜ movie"
     }
