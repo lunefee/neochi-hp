@@ -75,6 +75,7 @@ addEventListener("scroll", onScroll, { passive:true });
       "yt.next":       "別の動画をランダム再生 ▶",
       "nav.menu":      "メニュー",
       "fx.toggle":     "カーソルの星 ON / OFF",
+      "bgm.toggle":    "BGM ON / OFF",
       "lb.close":      "閉じる",
       "contact.aria":  "CONTACT（お問い合わせフォーム）",
       "shop.aria":     "neochi STORES へ",
@@ -87,6 +88,7 @@ addEventListener("scroll", onScroll, { passive:true });
       "yt.next":       "다른 영상 랜덤 재생 ▶",
       "nav.menu":      "메뉴",
       "fx.toggle":     "커서 별 ON / OFF",
+      "bgm.toggle":    "BGM 켜기 / 끄기",
       "lb.close":      "닫기",
       "contact.aria":  "CONTACT (문의 폼)",
       "shop.aria":     "neochi STORES로 이동",
@@ -99,6 +101,7 @@ addEventListener("scroll", onScroll, { passive:true });
       "yt.next":       "Play another random video ▶",
       "nav.menu":      "Menu",
       "fx.toggle":     "Cursor stars ON / OFF",
+      "bgm.toggle":    "Background music ON / OFF",
       "lb.close":      "Close",
       "contact.aria":  "Contact (inquiry form)",
       "shop.aria":     "Go to neochi STORES",
@@ -403,6 +406,44 @@ addEventListener("keydown", e => { if (e.key === "Escape" && !lb.hidden) closeLi
     fx.appendChild(s);
     alive++;
     s.addEventListener("animationend", () => { s.remove(); alive--; });
+  }
+})();
+
+/* ---------- BGM（ヘッダーの♪ボタンで ON / OFF） ---------- */
+(function bgm(){
+  const audio = document.getElementById("bgm");
+  const btn   = document.getElementById("bgmToggle");
+  if (!audio || !btn) return;
+
+  const KEY = "neochi:bgm";
+  audio.volume = 0.32;
+
+  const reflect = (on) => btn.setAttribute("aria-pressed", String(on));
+
+  function save(on){ try { localStorage.setItem(KEY, on ? "on" : "off"); } catch (e) {} }
+
+  function start(){
+    return audio.play().then(() => { reflect(true); save(true); })
+                       .catch(() => { reflect(false); });   // 自動再生ブロック時
+  }
+  function pause(){ audio.pause(); reflect(false); save(false); }
+
+  btn.addEventListener("click", () => {
+    if (audio.paused) start(); else pause();
+  });
+
+  // 前回 ON だった場合：ポリシー上、最初のユーザー操作で復帰させる
+  let want = false;
+  try { want = localStorage.getItem(KEY) === "on"; } catch (e) {}
+  if (want){
+    reflect(true);                       // 意図を先に反映（クリックで即再生に見せる）
+    const kick = () => { audio.play().then(cleanup).catch(() => {}); };
+    const cleanup = () => {
+      ["pointerdown", "keydown", "touchstart"].forEach(t => removeEventListener(t, kick));
+    };
+    ["pointerdown", "keydown", "touchstart"].forEach(t =>
+      addEventListener(t, kick, { passive: true }));
+    audio.play().then(cleanup).catch(() => {});   // 通る環境ならそのまま再生
   }
 })();
 

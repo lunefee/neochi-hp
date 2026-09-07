@@ -76,6 +76,9 @@
       <button type="button" class="langsw__b" data-lang="ko">KO</button>
       <button type="button" class="langsw__b" data-lang="en">EN</button>
     </div>
+    <button class="nav__bgm" id="bgmToggle" type="button" aria-pressed="false" data-i18n-aria="bgm.toggle" data-i18n-title="bgm.toggle" aria-label="BGM ON / OFF" title="BGM ON / OFF">
+      <span class="nav__bgm-ico" aria-hidden="true"><i></i><i></i><i></i></span>
+    </button>
     <button class="nav__star" id="fxToggle" type="button" aria-pressed="true" data-i18n-aria="fx.toggle" data-i18n-title="fx.toggle" aria-label="カーソルの星 ON / OFF" title="カーソルの星 ON / OFF">
       <img src="img/nav-star.png" alt="">
     </button>
@@ -181,6 +184,8 @@
   <button class="lb__close" id="lbClose" data-i18n-aria="lb.close" aria-label="閉じる">×</button>
   <img id="lbImg" src="" alt="">
 </div>
+
+<audio id="bgm" src="audio/bgm.mp3" loop preload="none"></audio>
 
 <div class="toast" id="toast" hidden></div>
 
